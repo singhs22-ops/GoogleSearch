@@ -1,0 +1,35 @@
+spring:
+  profiles: dev
+  main:
+    banner-mode: "off"
+  cache :
+    type : NONE
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/postgres
+    username: postgres
+    password: root
+    platform: postgres
+    hikari:
+      maximumPoolSize : 60
+      minimumIdle: 10
+      maxLifetime: 2000000
+      connectionTestQuery: SELECT 1
+  jpa:
+    database: POSTGRESQL
+    database-platform : org.hibernate.dialect.PostgreSQL94Dialect
+    hibernate:
+        ddl-auto: none
+        id:
+          new_generator_mappings: true
+    properties:
+      hibernate:
+        temp.use_jdbc_metadata_defaults: false
+    show-sql: true
+
+proxy:
+  isBehindProxy: false
+  proxyHost: 
+  proxyPort: 3000
+  proxyUser: 
+  proxyPass:
